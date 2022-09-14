@@ -1,0 +1,226 @@
+/* reset */
+
+*{
+   margin:0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+/* estilos generales */
+
+body{
+    background-color: #ECEEF3;
+    
+}
+
+/* grid y flex trabajan con etiquetas contenedoras osea padre */
+/* estilos de header, display none me ocula el header en este caso en la version mobile */
+
+header{
+    display: none;
+    justify-content:space-between;
+
+}
+
+header nav ul{
+    display: flex;
+}
+
+/* estilos de main */
+/* justify alinea horizontal, align alinea vertical */
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+ /* le aclaro que el span que quiero modificar es el que esta dentro de este main, sino 
+ me tomaria todos los span que haya y me los cambiaraia */
+
+main h2{
+    text-align: center;
+    color: #182941;
+    margin: 1rem;
+}
+
+main h2 span{
+    display: block;
+}
+
+main p{
+    text-align: center;
+}
+
+main .boton{
+    background-color: #51B0DF;
+    padding: 0.6rem;
+    margin-top: 1rem;
+    box-shadow: 2px 2px 2px black;
+    color: white;
+    letter-spacing: 0.15rem;
+}
+
+
+
+/* estilos de section */
+
+section{
+    display: none;
+}
+
+/* estilos de footer */
+/* si es un h4 y tengo que alinearlo, no hace falta desplegar flex, puedo usar text-align, el footer no es un texto es una
+etiqueta contenedora  */
+
+footer h4{
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+
+/* media queries */
+
+/* la etiqueta padra de los li es lu */
+
+@media screen and (min-width:600px){
+    header{
+        display: block;
+        display: flex;
+    }
+
+    header nav ul{ /* esto es lo que no me salia en mi proyeeectooo */
+        display: flex;
+        list-style: none;
+        gap: 1rem;
+    }
+
+    header nav ul li{
+        font-size: 20px;
+        font-weight: bold;
+        transition: 2s; 
+    }
+
+    header nav ul li:hover{
+        background-color: rgb(146, 146, 239);   
+        transform: scale(0.9);
+        box-shadow: 1px 1px 1px black;
+    }
+
+    /* estilos nuevos del main, son 4x2 dos columnas y 4 filas, porque se trabaja solo el main, el footer y header es otro contenido */
+
+    main{
+        padding: 1rem;
+        display: grid;
+        grid-template-columns: repeat(2, 2fr) ;
+        grid-template-rows: 0.5fr 1fr 0.5fr 0.5fr ;
+        grid-template-areas:
+        "p img"
+        "h2 img"
+        "p-dos img"
+        "boton img" ;
+        justify-content: center;
+        justify-items: center;
+        
+    }
+
+    main p{
+        grid-area: p;
+    }
+
+    main img{
+        grid-area: img;
+        width: 60%;
+        filter: drop-shadow(4px 3px 2px rgb(11, 11, 11));
+    }
+
+    main h2{
+        grid-area: h2;
+        font-size: 1.7rem;
+    }
+
+    main .p-dos{
+        grid-area: p-dos;
+    }
+
+    main .boton{
+        grid-area: boton;
+
+        
+    }
+
+    main .boton:hover{
+        transform: scale(1.1);
+    }
+
+    /* estilos de section */
+
+    section{
+        display: block;
+        display: flex;
+        padding: 1rem;
+        animation-name: pepino2;
+        animation-duration: 10s;
+        animation-iteration-count: infinite;
+        
+    }
+
+    @keyframes pepino2 {
+        0%{
+            background-color: rgb(206, 206, 253);
+        }
+
+        50%{
+            background-color: rgb(224, 210, 237);
+        }
+
+        100%{
+            background-color: rgb(244, 205, 255);
+        }
+
+        
+    }
+
+    section div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+
+    section div p{
+        text-align: center;
+    }
+
+    section div img{
+        width: 20%;
+        filter: drop-shadow(4px 7px 2px rgb(94,93,93));
+        animation-name: pepino;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        
+    }
+
+    @keyframes pepino {
+        0%{
+            transform: translatex(0);
+        }
+
+        50%{
+            transform: translatex(5px);
+        }
+
+        100%{
+            transform: translateY(0);
+        }
+
+    }
+    /* estilos de footer */
+
+    footer{
+        margin-top: 1.3rem;
+    }
+    
+}
+    
+
